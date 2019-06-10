@@ -6,17 +6,17 @@ Built with React and the [Create React App](https://github.com/facebook/create-r
 To work on the Rating filter, I did the following:
 - Create an initial rating state in Rating component and set it to 3.
 - Set the range input value as the rating state.
-- Push the state up to the App parent component
-- Pass rating state as prop to MovieList component
-- When the rating state is less than the vote_average 
+- Push the state up to the App parent component.
+- Pass rating state as prop to MovieList component.
+- When the rating state is less than the vote_average, display the correct MovieDisplay components as results.
 
 ## Genre Filter
 
 Unfortunately, I couldn't get the Genre filters to work. My thinking for it was the following:
 - Create a genreFilter state and set it to an empty array.
-- Map over the movies state and spread in a new property for visibility and set to true.
+- Map over the movies state and spread in a boolean property and set to true to display all results. 
 - When a genre checkbox is selected, run a function to set the genreFilter state to the selected genre IDs.
-- If the movie state genreIDs match the genreFilter state, set a visibility flag property to true, which would mean they would show.
+- If the movie state genreIDs match the genreFilter state, display the results.
 
 I will keep working on this as and when I can as I really want to work out how to do it.
 
