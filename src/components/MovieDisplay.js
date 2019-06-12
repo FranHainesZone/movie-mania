@@ -9,6 +9,7 @@ class MovieDisplay extends React.Component {
                 </div>
                 <div className="content">
                     <h4 className="header">{this.props.movie.title}</h4>
+                    <p className="description">{this.props.movieGenres.join(', ')}</p>
                 </div>
             </div>
         )
