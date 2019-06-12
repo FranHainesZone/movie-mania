@@ -8,7 +8,7 @@ To work on the Rating filter, I did the following:
 - Set the range input value as the rating state.
 - Push the state up to the App parent component.
 - Pass rating state as prop to MovieList component.
-- When the rating state is less than the vote_average.
+- When the rating state is less than the vote_average, display the correct MovieDisplay components as results.
 
 ## Genre Filter
 
@@ -18,8 +18,6 @@ To work on the Genre filter, I did the following:
 - When a genre checkbox is selected, run a function to add selected genre ID to the filteredGenres state.
 - If the movie state genreIDs match the genreFilter state, set visibility flag property to true.
 - When rendering movies, filter only the the movies in state with visibility set to true and then display.
-
-I will keep working on this as and when I can as I really want to work out how to do it.
 
 ### `npm start`
 
