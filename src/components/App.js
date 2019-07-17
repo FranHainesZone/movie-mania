@@ -10,9 +10,7 @@ class App extends React.Component {
     // Set initial state
     movies: [], 
     genres: [],
-    filteredGenres: {
-      filteredGenresId: []
-    },
+    filteredGenres: [],
     rating: 3
   };
 
@@ -56,10 +54,7 @@ class App extends React.Component {
     const { filteredGenres } = this.state;
 
     this.setState({
-      filteredGenres: { 
-        // add selected IDs to filteredGenres state
-        filteredGenresId: filteredGenres.filteredGenresId.concat(id)
-      }
+      filteredGenres: filteredGenres.concat(id)
     }, this.filterResults);
   };
     
@@ -67,10 +62,8 @@ class App extends React.Component {
     const { filteredGenres } = this.state;
 
     this.setState({
-      filteredGenres: {
-          // Filter filteredGenres state if checked ID doesn't match
-          filteredGenresId: filteredGenres.filteredGenresId.filter(filteredGenreId => !(filteredGenreId === id))
-      }
+      // Filter filteredGenres state if checked ID doesn't match
+      filteredGenres: filteredGenres.filter(filteredGenreId => !(filteredGenreId === id))
     }, this.filterResults);
   };
   
@@ -82,7 +75,7 @@ class App extends React.Component {
           .map(movie => ({
             ...movie,
             // check each genre ID checked in filter state matches movie genre ID & spread in results
-            visibility: filteredGenres.filteredGenresId.every(filteredGenreId => movie.genre_ids.includes(filteredGenreId))
+            visibility: filteredGenres.every(filteredGenreId => movie.genre_ids.includes(filteredGenreId))
           }))
       });
   }
@@ -113,7 +106,6 @@ class App extends React.Component {
               genres={genres} 
               movies={movies} 
               rating={rating} 
-              filteredGenres={filteredGenres}
             />
           </div>  
           <div className="four wide column">  
