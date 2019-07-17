@@ -11,8 +11,9 @@ class App extends React.Component {
     movies: [], 
     genres: [],
     filteredGenres: {
-        filteredGenresId: []
-    }
+      filteredGenresId: []
+    },
+    rating: 3
   };
 
   componentDidMount() {
