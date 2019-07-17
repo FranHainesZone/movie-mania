@@ -2,30 +2,34 @@ import React from 'react';
 
 class Genre extends React.Component {
     render() { 
-        const renderGenres = this.props.genres.map((genre) => {
+        const { genres, onSelected, onRemoved } = this.props;
+
+        const renderGenres = genres.map((genre) => {
+
+            const { id, name } = genre;
 
             this.handleChange = (e) => {
                 // if event target is checked
                 if (e.target.checked) {
                     // pass ID to selected function
-                    this.props.onSelected(genre.id);
+                    onSelected(id);
                 // else pass ID to remvoed function
                 } else if (!e.target.checked) {
-                    this.props.onRemoved(genre.id);
+                    onRemoved(id);
                 }
             };
         
             return (
-                <div className="item" key={genre.id}>
+                <div className="item" key={id}>
                     <div className="ui checkbox">
                         <input 
                             type="checkbox" 
-                            value={genre.id}
-                            id={genre.id}
+                            value={id}
+                            id={id}
                             name="genre"
                             onChange={this.handleChange}
                         />
-                        <label htmlFor={genre.id}>{genre.name}</label>
+                        <label htmlFor={id}>{name}</label>
                     </div>
                 </div>
             )

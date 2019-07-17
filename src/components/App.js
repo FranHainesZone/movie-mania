@@ -24,18 +24,25 @@ class App extends React.Component {
     getGenres = async () => {
         const response = await tmdb.get('/genre/movie/list');
 
+        // Destructuring genres from response.data
+        const { genres } = response.data;
+
         // Set response as state for genres
         this.setState({ 
-            genres: response.data.genres 
+            // would be genres: genres
+            genres
         });
     };
 
     getMovies = async () => {
         const response = await tmdb.get('/movie/now_playing');
 
+        // destructure results
+        const { results } = response.data;
+
         // Set response as state for movies
         this.setState({ 
-            movies: response.data.results
+            movies: results
             .map(movie => ({
                 ...movie,
                 // spread and set flag property to true
@@ -44,31 +51,37 @@ class App extends React.Component {
         });
     };
 
-    genreChecked = (id) => {
+    genreChecked = id => {
+        const { filteredGenres } = this.state;
+
         this.setState({
             filteredGenres: { 
                 // add selected IDs to filteredGenres state
-                filteredGenresId: this.state.filteredGenres.filteredGenresId.concat(id)
+                filteredGenresId: filteredGenres.filteredGenresId.concat(id)
             }
         }, this.filterResults);
     };
     
     genreUnchecked = (id) => {
+        const { filteredGenres } = this.state;
+
         this.setState({
             filteredGenres: {
                 // Filter filteredGenres state if checked ID doesn't match
-                filteredGenresId: this.state.filteredGenres.filteredGenresId.filter(filteredGenreId => !(filteredGenreId === id))
+                filteredGenresId: filteredGenres.filteredGenresId.filter(filteredGenreId => !(filteredGenreId === id))
             }
         }, this.filterResults);
     };
     
     filterResults = () => {
+        const { movies, filteredGenres } = this.state;
+
         this.setState({
-          movies: this.state.movies
+          movies: movies
             .map(movie => ({
               ...movie,
-              // check each genre ID checked in filter state matches movie genre ID
-              visibility: this.state.filteredGenres.filteredGenresId.every(filteredGenreId => movie.genre_ids.includes(filteredGenreId))
+              // check each genre ID checked in filter state matches movie genre ID & spread in results
+              visibility: filteredGenres.filteredGenresId.every(filteredGenreId => movie.genre_ids.includes(filteredGenreId))
             }))
         });
     }
@@ -81,6 +94,8 @@ class App extends React.Component {
     };
 
     render() {
+        const { genres, movies, rating, filteredGenres } = this.state;
+
         return (
             <div className="ui main container">
                 <header className="ui dividing header">
@@ -94,10 +109,10 @@ class App extends React.Component {
                 <div className="ui grid"> 
                     <div className="twelve wide column">              
                         <MovieList 
-                            genres={this.state.genres} 
-                            movies={this.state.movies} 
-                            rating={this.state.rating} 
-                            filteredGenres={this.state.filteredGenres}
+                            genres={genres} 
+                            movies={movies} 
+                            rating={rating} 
+                            filteredGenres={filteredGenres}
                         />
                     </div>  
                     <div className="four wide column">  
@@ -108,8 +123,8 @@ class App extends React.Component {
                             />
                             <h2>Filter by Genre</h2>
                             <Genre 
-                                genres={this.state.genres} 
-                                filteredGenres={this.state.filteredGenres} 
+                                genres={genres} 
+                                filteredGenres={filteredGenres} 
                                 onSelected={this.genreChecked} 
                                 onRemoved={this.genreUnchecked} 
                             />

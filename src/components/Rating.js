@@ -12,21 +12,22 @@ class Rating extends React.Component {
 
     // trigger event - set rating state as target value
     handleChange = (e) => {
-        this.setState({rating: e.target.value});   
+        this.setState({rating: e.target.value}); 
         // Trigger ratingChange function and pass target value to App component
         this.props.ratingChange(e.target.value); 
     }
 
-    render() {
+    // Pass PROPS through to function
+    render(rating) {
         return (
             <div>
-                <div>{this.state.rating}</div>
+                <div>{rating}</div>
                 <input 
                     type="range" 
                     min="0" 
                     max="10" 
                     // Display value as rating state
-                    value={this.state.rating} 
+                    value={rating} 
                     // on change, run handleChange function
                     onChange={this.handleChange}
                     step="0.5"
