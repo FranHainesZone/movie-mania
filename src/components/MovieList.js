@@ -2,11 +2,9 @@ import React from 'react';
 import MovieDisplay from './MovieDisplay';
 
 const MovieList = (props) => {
-  const { movies, genres, rating } = props;
-  
-  // Sort movies by order of popularity
-  const moviesSort = movies
-    .sort((a,b) => a.popularity > b.popularity ? -1 : 1);
+  const { movies, genres, rating, compare } = props;
+
+  const moviesSort = movies.sort(compare('popularity'));
 
   // Map over sorted movies and set to renderMovies var
   const renderMovies = moviesSort
@@ -14,6 +12,7 @@ const MovieList = (props) => {
     .filter(movie => movie.visibility)
     // map over sorted movies state (ref as movie)
     .map((movie) => {
+
       // Empty array for formatted genre names
       let movieGenres = [];
       // check inputs have been checked

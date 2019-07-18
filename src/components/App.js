@@ -87,6 +87,11 @@ class App extends React.Component {
     });
   };
 
+  // Compare items
+  compare = (value) => {
+    return (a, b) => a[value] > b[value] ? -1 : 1;
+  }
+
   render() {
     const { genres, movies, rating, filteredGenres } = this.state;
 
@@ -106,6 +111,7 @@ class App extends React.Component {
               genres={genres} 
               movies={movies} 
               rating={rating} 
+              compare={this.compare} 
             />
           </div>  
           <div className="four wide column">  

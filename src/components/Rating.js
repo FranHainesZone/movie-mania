@@ -9,7 +9,6 @@ class Rating extends React.Component {
 
   // Pass PROPS through to function
   render() {
-  
     const { rating } = this.props;
     return (
       <div>
