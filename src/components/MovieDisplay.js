@@ -4,12 +4,12 @@ const MovieDisplay = (props) => {
   const { movie, movieGenres } = props;
 
   return (
-    <div className="column">
+    <div className="column" data-testid="movie-item">
       <div className="image">
-        <img className="ui fluid image" src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title}/>
+        <img className="ui fluid image" src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title}/>
       </div>
       <div className="content">
-        <h4 className="header">{movie.title}</h4>
+        <h4 data-testid="movie-title" className="header">{movie.title}</h4>
         <p className="description">{movieGenres.join(', ')}</p>
       </div>
     </div>

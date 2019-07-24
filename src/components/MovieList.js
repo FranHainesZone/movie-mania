@@ -1,8 +1,14 @@
 import React from 'react';
 import MovieDisplay from './MovieDisplay';
+import { render } from '@testing-library/react';
 
 const MovieList = (props) => {
-  const { movies, genres, rating, compare } = props;
+  const { movies, genres, rating } = props;
+
+  // Compare items
+  const compare = (value) => {
+    return (a, b) => a[value] > b[value] ? -1 : 1;
+  }
 
   const moviesSort = movies.sort(compare('popularity'));
 
@@ -12,7 +18,6 @@ const MovieList = (props) => {
     .filter(movie => movie.visibility)
     // map over sorted movies state (ref as movie)
     .map((movie) => {
-
       // Empty array for formatted genre names
       let movieGenres = [];
       // check inputs have been checked
@@ -33,15 +38,19 @@ const MovieList = (props) => {
         return (
           <MovieDisplay 
             key={movie.id} 
-            movie={movie} 
-            movieGenres={movieGenres} 
+            movie={movie}
+            movieGenres={movieGenres}
           />
         )
       }
   });
   
   // Display rendered movies
-  return <div className="ui stackable four column grid">{renderMovies}</div>
+  return (
+    <div className="ui stackable four column grid" id="render-movies" data-testid="render-movies">
+      {renderMovies}
+    </div>
+  )
 }
 
 export default MovieList;

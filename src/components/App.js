@@ -87,16 +87,11 @@ class App extends React.Component {
     });
   };
 
-  // Compare items
-  compare = (value) => {
-    return (a, b) => a[value] > b[value] ? -1 : 1;
-  }
-
   render() {
     const { genres, movies, rating, filteredGenres } = this.state;
 
     return (
-      <div className="ui main container">
+      <div className="ui main container" data-testid="app">
         <header className="ui dividing header">
           <div className="ui one column grid">
             <div className="column">
@@ -111,7 +106,6 @@ class App extends React.Component {
               genres={genres} 
               movies={movies} 
               rating={rating} 
-              compare={this.compare} 
             />
           </div>  
           <div className="four wide column">  

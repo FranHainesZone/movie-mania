@@ -15,9 +15,10 @@ class Rating extends React.Component {
         <input 
           type="range" 
           min="0" 
-          max="10" 
+          max="20" 
           // Display value as rating state
           value={rating} 
+          data-testid="rating"
           // on change, run handleChange function
           // COULD ALSO DO:
           // onChange={(e) => ratingChange(e.target.value)}
