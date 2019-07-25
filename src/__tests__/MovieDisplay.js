@@ -1,19 +1,20 @@
 import React from 'react';
 import {
   render,
-  cleanup,
-  fireEvent
-} from "@testing-library/react";
+  cleanup
+} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import MovieDisplay from "../components/MovieDisplay";
+import MovieDisplay from '../components/MovieDisplay';
 
-test("pass data to results", () => {
+afterEach(cleanup);
+
+test('pass data to results', () => {
   const movie = {
-    "title": "The Lion King",
-    "poster_path": "/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg"
+    'title': 'The Lion King',
+    'poster_path': '/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg'
   };
 
-  const movieGenres = ["Adventure", "Animation", "Family", "Drama", "Action"];
+  const movieGenres = ['Adventure', 'Animation', 'Family', 'Drama', 'Action'];
 
   const { getByTestId } = render (
     <MovieDisplay 

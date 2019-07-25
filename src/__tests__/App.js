@@ -2,8 +2,8 @@ import React from 'react';
 import {
   cleanup,
   render
-} from "@testing-library/react";
-import App from "../components/App";
+} from '@testing-library/react';
+import App from '../components/App';
 
 afterEach(cleanup);
 

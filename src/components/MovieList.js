@@ -1,6 +1,5 @@
 import React from 'react';
 import MovieDisplay from './MovieDisplay';
-import { render } from '@testing-library/react';
 
 const MovieList = (props) => {
   const { movies, genres, rating } = props;
