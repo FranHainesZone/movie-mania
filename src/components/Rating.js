@@ -15,7 +15,7 @@ class Rating extends React.Component {
         <input 
           type="range" 
           min="0" 
-          max="20" 
+          max="10" 
           // Display value as rating state
           value={rating} 
           data-testid="rating"
