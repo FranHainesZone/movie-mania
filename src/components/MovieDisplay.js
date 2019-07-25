@@ -4,7 +4,7 @@ const MovieDisplay = (props) => {
   const { movie, movieGenres } = props;
 
   return (
-    <div className="column" data-testid="movie-item">
+    <div className="column">
       <div className="image">
         <img className="ui fluid image" src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title}/>
       </div>

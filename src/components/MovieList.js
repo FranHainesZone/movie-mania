@@ -47,7 +47,7 @@ const MovieList = (props) => {
   
   // Display rendered movies
   return (
-    <div className="ui stackable four column grid" id="render-movies" data-testid="render-movies">
+    <div className="ui stackable four column grid" data-testid="render-movies">
       {renderMovies}
     </div>
   )

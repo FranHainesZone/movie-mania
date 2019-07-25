@@ -34,90 +34,87 @@ test("calls function when range is changed", () => {
 });
 
 
-test("returns films with rating that is higher than 7", async () => {
-  const rating = 5;
-  const genres = {
-    "genres": [
-      {
-        "id": 28,
-        "name": "Action"
-      },
-      {
-        "id": 12,
-        "name": "Adventure"
-      },
-      {
-        "id": 16,
-        "name": "Animation"
-      },
-      {
-        "id": 35,
-        "name": "Comedy"
-      },
-      {
-        "id": 80,
-        "name": "Crime"
-      },
-      {
-        "id": 99,
-        "name": "Documentary"
-      },
-      {
-        "id": 18,
-        "name": "Drama"
-      },
-      {
-        "id": 10751,
-        "name": "Family"
-      },
-      {
-        "id": 14,
-        "name": "Fantasy"
-      },
-      {
-        "id": 36,
-        "name": "History"
-      },
-      {
-        "id": 27,
-        "name": "Horror"
-      },
-      {
-        "id": 10402,
-        "name": "Music"
-      },
-      {
-        "id": 9648,
-        "name": "Mystery"
-      },
-      {
-        "id": 10749,
-        "name": "Romance"
-      },
-      {
-        "id": 878,
-        "name": "Science Fiction"
-      },
-      {
-        "id": 10770,
-        "name": "TV Movie"
-      },
-      {
-        "id": 53,
-        "name": "Thriller"
-      },
-      {
-        "id": 10752,
-        "name": "War"
-      },
-      {
-        "id": 37,
-        "name": "Western"
-      }
-    ]
-  }
-  const movies =
-  [
+test("returns films with rating that is higher than 7", () => {
+  const rating = 7;
+  const genres = [
+    {
+      "id": 28,
+      "name": "Action"
+    },
+    {
+      "id": 12,
+      "name": "Adventure"
+    },
+    {
+      "id": 16,
+      "name": "Animation"
+    },
+    {
+      "id": 35,
+      "name": "Comedy"
+    },
+    {
+      "id": 80,
+      "name": "Crime"
+    },
+    {
+      "id": 99,
+      "name": "Documentary"
+    },
+    {
+      "id": 18,
+      "name": "Drama"
+    },
+    {
+      "id": 10751,
+      "name": "Family"
+    },
+    {
+      "id": 14,
+      "name": "Fantasy"
+    },
+    {
+      "id": 36,
+      "name": "History"
+    },
+    {
+      "id": 27,
+      "name": "Horror"
+    },
+    {
+      "id": 10402,
+      "name": "Music"
+    },
+    {
+      "id": 9648,
+      "name": "Mystery"
+    },
+    {
+      "id": 10749,
+      "name": "Romance"
+    },
+    {
+      "id": 878,
+      "name": "Science Fiction"
+    },
+    {
+      "id": 10770,
+      "name": "TV Movie"
+    },
+    {
+      "id": 53,
+      "name": "Thriller"
+    },
+    {
+      "id": 10752,
+      "name": "War"
+    },
+    {
+      "id": 37,
+      "name": "Western"
+    }
+  ];
+  const movies = [
     {
       "vote_count": 697,
       "id": 420818,
@@ -131,7 +128,8 @@ test("returns films with rating that is higher than 7", async () => {
         10751,
         18,
         28
-      ]
+      ],
+      "visibility": true
     },
     {
       "vote_count": 2287,
@@ -144,7 +142,8 @@ test("returns films with rating that is higher than 7", async () => {
         28,
         12,
         878
-      ]
+      ],
+      "visibility": true
     },
     {
       "vote_count": 1709,
@@ -160,7 +159,8 @@ test("returns films with rating that is higher than 7", async () => {
         878,
         28,
         12
-      ]
+      ],
+      "visibility": true
     }
   ];
 
@@ -171,8 +171,6 @@ test("returns films with rating that is higher than 7", async () => {
       rating={rating} 
     />
   );
-
-  console.log(getByTestId('render-movies'));
-
-  await wait((expect(getByTestId('render-movies').children.length).toBe(1)));
+  
+  expect(getByTestId('render-movies').children.length).toBe(1);
 });
