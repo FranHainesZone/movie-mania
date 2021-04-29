@@ -1,7 +1,8 @@
 {
-  "name": "videos",
+  "name": "movie-mania",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://franhaineszone.github.io/movie-mania",
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.8.4",
@@ -13,7 +14,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:update": "npm test -- --updateSnapshot --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -26,6 +29,7 @@
   ],
   "devDependencies": {
     "@testing-library/jest-dom": "^4.0.0",
-    "@testing-library/react": "^8.0.5"
+    "@testing-library/react": "^8.0.5",
+    "gh-pages": "^3.1.0"
   }
 }

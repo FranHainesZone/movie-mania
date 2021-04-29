@@ -20,7 +20,7 @@ const Genre = (props) =>  {
 
     return (
       <div className="item" key={id}>
-        <div className="ui checkbox">
+        <div className="ui checkbox description">
           <input 
             type="checkbox" 
             value={id}
@@ -28,7 +28,7 @@ const Genre = (props) =>  {
             name="genre"
             onChange={handleChange}
           />
-          <label htmlFor={id}>{name}</label>
+          <label htmlFor={id}><span className="description">{name}</span></label>
         </div>
       </div>
     )

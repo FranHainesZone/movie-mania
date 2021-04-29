@@ -92,10 +92,10 @@ class App extends React.Component {
 
     return (
       <div className="ui main container" data-testid="app">
-        <header className="ui dividing header">
+        <header className="ui header">
           <div className="ui one column grid">
             <div className="column">
-              <h1>Movie Listings</h1>
+              <h1 className="logo">MovieMania</h1>
             </div>
           </div>
         </header>
@@ -110,11 +110,11 @@ class App extends React.Component {
           </div>  
           <div className="four wide column">  
             <div className="ui list">
-              <h2>Filter by Rating</h2>
+              <h2 className="heading-filter">Filter by Rating</h2>
               <Rating 
                 ratingChange={this.ratingChange} 
               />
-              <h2>Filter by Genre</h2>
+              <h2 className="heading-filter">Filter by Genre</h2>
               <Genre 
                 genres={genres} 
                 filteredGenres={filteredGenres} 

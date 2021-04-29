@@ -3,3 +3,31 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+
+body {
+  background: #00b5ad;
+  padding: 20px;
+}
+
+.logo {
+  background: #ffffff;
+  color: #00b5ad;
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+}
+
+.header {
+  color: #ffffff;
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.heading-filter, .description {
+  color: #ffffff;
+}
+
+.item {
+  padding: 2px 0;
+  font-size: 16px;
+}
